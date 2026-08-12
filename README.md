@@ -77,11 +77,7 @@ export OPENROUTER_API_KEY='your-api-key'
 OPENROUTER_API_KEY=your-api-key
 ```
 
-`.env.local` 파일은 버전 관리에 포함하지 않도록 주의해주세요!!
-
-## 데이터 처리
-
-CLI는 작성 요청과 표준 입력으로 받은 참고 자료를 OpenRouter API로 전송합니다. 비밀 키, 개인정보, 외부로 보내면 안 되는 코드는 참고 자료에 포함하지 않는 것을 권장합니다.
+`.env.local` 파일은 버전 관리에 포함하지 않도록 주의해주세요…!
 
 ## 사용 방법
 
