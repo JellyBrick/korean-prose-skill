@@ -23,7 +23,7 @@ Codex와 Claude Code를 비롯한 Agent Skills 호환 에이전트에서 사용�
 ## 요구 사항
 
 - Agent Skills를 지원하고 로컬 명령을 실행할 수 있는 에이전트
-- Node.js 24 이상
+- Node.js 24+
 - OpenRouter API 키
 
 ## 설치
@@ -37,7 +37,7 @@ Codex에 저장소 경로를 전달하여 설치를 요청할 수 있습니다.
 https://github.com/JellyBrick/korean-prose-skill/tree/main/skills/korean-prose
 ```
 
-직접 설치하려면 저장소를 복제한 뒤 스킬 폴더를 Codex 개인 설치 경로로 복사합니다.
+직접 설치하려면 저장소를 복제한 뒤 스킬 폴더를 Codex 개인 설치 경로로 복사해주세요.
 
 ```bash
 git clone https://github.com/JellyBrick/korean-prose-skill.git
@@ -47,7 +47,7 @@ cp -R korean-prose-skill/skills/korean-prose ~/.codex/skills/korean-prose
 
 ### Claude Code
 
-저장소를 복제한 뒤 스킬 폴더를 Claude Code 개인 설치 경로로 복사합니다.
+저장소를 복제한 뒤 스킬 폴더를 Claude Code 개인 설치 경로로 복사해주세요.
 
 ```bash
 git clone https://github.com/JellyBrick/korean-prose-skill.git
@@ -55,12 +55,11 @@ mkdir -p ~/.claude/skills
 cp -R korean-prose-skill/skills/korean-prose ~/.claude/skills/korean-prose
 ```
 
-Claude Code의 설치 위치와 호출 방식은
-[Claude Code 스킬 문서](https://code.claude.com/docs/en/slash-commands)에서 확인할 수 있습니다.
+Claude Code의 설치 위치와 호출 방식은 [Claude Code 스킬 문서](https://code.claude.com/docs/en/slash-commands)에서 확인하실 수 있습니다.
 
 ### 기타 Agent Skills 호환 에이전트
 
-사용 중인 Agent의 문서에서 안내하는 스킬 디렉터리에 `skills/korean-prose` 폴더를 복사합니다.
+사용 중인 Agent의 문서에서 안내하는 스킬 디렉터리에 `skills/korean-prose` 폴더를 복사해 주세요.
 지원하는 디렉터리와 실행 권한은 Agent마다 다를 수 있습니다.
 
 ## API 키 설정
