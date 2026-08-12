@@ -1,0 +1,4 @@
+interface:
+  display_name: "Korean Prose"
+  short_description: "어색한 표현을 자연스럽고 매끄러운 한국어 문장으로 다듬어 드려요."
+  default_prompt: "$korean-prose 스킬로 문장을 자연스럽고 매끄럽게 다듬어 주세요."
