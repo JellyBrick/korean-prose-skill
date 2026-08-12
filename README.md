@@ -30,7 +30,7 @@ Codex와 Claude Code를 비롯한 Agent Skills 호환 에이전트에서 사용�
 
 ### Codex
 
-Codex에 저장소 경로를 전달하여 설치를 요청할 수 있습니다.
+Codex에 저장소 경로를 전달하여 설치를 요청할 수 있어요.
 
 ```text
 다음 스킬을 설치해 주세요:
@@ -55,12 +55,12 @@ mkdir -p ~/.claude/skills
 cp -R korean-prose-skill/skills/korean-prose ~/.claude/skills/korean-prose
 ```
 
-Claude Code의 설치 위치와 호출 방식은 [Claude Code 스킬 문서](https://code.claude.com/docs/en/slash-commands)에서 확인하실 수 있습니다.
+Claude Code의 설치 위치와 호출 방식은 [Claude Code 스킬 문서](https://code.claude.com/docs/en/slash-commands)에서 확인하실 수 있어요.
 
 ### 기타 Agent Skills 호환 에이전트
 
 사용 중인 Agent의 문서에서 안내하는 스킬 디렉터리에 `skills/korean-prose` 폴더를 복사해 주세요.
-지원하는 디렉터리와 실행 권한은 Agent마다 다를 수 있습니다.
+지원하는 디렉터리와 실행 권한은 Agent마다 다를 수 있어요.
 
 ## API 키 설정
 
@@ -70,7 +70,7 @@ OpenRouter API 키를 환경 변수로 설정합니다.
 export OPENROUTER_API_KEY='your-api-key'
 ```
 
-작업 중인 프로젝트의 `.env.local` 파일에 설정할 수도 있습니다.
+작업 중인 프로젝트의 `.env.local` 파일에 설정하는 방법도 있어요.
 
 ```dotenv
 OPENROUTER_API_KEY=your-api-key
@@ -82,7 +82,7 @@ OPENROUTER_API_KEY=your-api-key
 
 ### Codex
 
-대화창에서 `$korean-prose`를 불러 원하는 작업을 요청합니다.
+대화창에서 `$korean-prose`를 불러 원하는 작업을 요청할 수 있어요.
 
 ```text
 $korean-prose를 사용해 이 PR 본문을 자연스럽게 다듬어 주세요.
@@ -90,7 +90,7 @@ $korean-prose를 사용해 이 PR 본문을 자연스럽게 다듬어 주세요.
 
 ### Claude Code
 
-대화창에서 `/korean-prose` 명령으로 호출합니다.
+대화창에서 `/korean-prose` 명령으로 호출할 수 있어요.
 
 ```text
 /korean-prose 이 PR 본문을 자연스럽게 다듬어 주세요.
@@ -98,7 +98,7 @@ $korean-prose를 사용해 이 PR 본문을 자연스럽게 다듬어 주세요.
 
 ### 터미널
 
-저장소를 복제한 디렉터리에서 CLI로 직접 실행할 수도 있습니다.
+저장소를 복제한 디렉터리에서 CLI로 직접 실행할 수도 있어요.
 
 ```bash
 node skills/korean-prose/scripts/prose.ts \
@@ -110,7 +110,7 @@ git diff --stat | node skills/korean-prose/scripts/prose.ts \
   '이 변경의 PR 본문을 작성해 줘'
 ```
 
-인자에는 작성 요청을, 표준 입력에는 참고 자료나 변경 사항을 전달합니다. `--medium` 옵션에는 글이 게시될 출력 매체를 지정합니다.
+인자에는 작성 요청을, 표준 입력에는 참고 자료나 변경 사항을 전달합니다. `--medium` 옵션에는 글이 게시될 출력 매체를 지정해주세요.
 
 ## 문체 규약
 
