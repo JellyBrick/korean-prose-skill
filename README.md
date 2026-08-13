@@ -30,7 +30,7 @@ Codex와 Claude Code를 비롯한 Agent Skills 호환 에이전트에서 사용�
 
 ### Codex
 
-Codex에 저장소 경로를 전달하여 설치를 요청할 수 있어요.
+Codex에 저장소 경로를 전달하여 설치를 요청할 수 있습니다.
 
 ```text
 다음 스킬을 설치해 주세요:
@@ -55,12 +55,12 @@ mkdir -p ~/.claude/skills
 cp -R korean-prose-skill/skills/korean-prose ~/.claude/skills/korean-prose
 ```
 
-Claude Code의 설치 위치와 호출 방식은 [Claude Code 스킬 문서](https://code.claude.com/docs/en/slash-commands)에서 확인하실 수 있어요.
+Claude Code의 설치 위치와 호출 방식은 [Claude Code 스킬 문서](https://code.claude.com/docs/en/slash-commands)에서 확인하실 수 있습니다.
 
 ### 기타 Agent Skills 호환 에이전트
 
 사용 중인 Agent의 문서에서 안내하는 스킬 디렉터리에 `skills/korean-prose` 폴더를 복사해 주세요.
-지원하는 디렉터리와 실행 권한은 Agent마다 다를 수 있어요.
+지원하는 디렉터리와 실행 권한은 Agent마다 다를 수 있습니다.
 
 ## API 키 설정
 
@@ -70,13 +70,13 @@ OpenRouter API 키를 환경 변수로 설정해 주세요.
 export OPENROUTER_API_KEY='your-api-key'
 ```
 
-작업 중인 프로젝트의 `.env.local` 파일에 설정하는 방법도 있어요.
+작업 중인 프로젝트의 `.env.local` 파일에 설정하는 방법도 있습니다.
 
 ```dotenv
 OPENROUTER_API_KEY=your-api-key
 ```
 
-`.env.local` 파일은 버전 관리에 포함하지 않도록 주의해주세요…!
+(`.env.local` 파일은 버전 관리에 포함하지 않도록 주의해주세요)
 
 ## 사용 방법
 
