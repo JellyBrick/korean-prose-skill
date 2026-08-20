@@ -23,8 +23,36 @@ git diff --stat | node <skill-directory>/scripts/prose.ts --medium 'GitHub PR �
 - 인자에는 작성 요청을, 표준 입력에는 참고 자료를 전달하세요.
 - `--medium` 옵션에는 `GitHub PR 본문`, `앱 내 안내 팝업`, `버튼 이름`, `SNS 스레드`,
   `내부 개발 문서`처럼 실제 출력 매체를 지정하세요.
-- `OPENROUTER_API_KEY` 환경변수가 없으면 작업을 멈추고 설정 방법을 안내하세요.
+- 기본 제공자는 OpenRouter이며 `OPENROUTER_API_KEY`가 필요합니다.
+- Google AI Studio를 직접 사용하려면 `--provider google-ai-studio`와 `GEMINI_API_KEY`를
+  사용하세요. 빠르고 저렴한 초고에는 기본값인 `gemini-3.5-flash-lite`를 사용하고, 더 높은
+  품질이 필요하면 `--model gemini-3.7-flash`를 지정하세요.
+- `KOREAN_PROSE_PROVIDER`와 `KOREAN_PROSE_MODEL` 환경변수로 기본 제공자와 모델을 바꿀 수
+  있습니다. 명령줄의 `--provider`와 `--model`이 환경변수보다 우선합니다.
+- 선택한 제공자의 API 키나 CLI 로그인이 준비되지 않았다면 작업을 멈추고 설정 방법을
+  안내하세요.
 - 짧은 한 줄 주석이나 변수명처럼 도구를 실행하는 비용이 더 큰 작업은 직접 처리하세요.
+
+### Antigravity 사전 동의
+
+Antigravity는 [추가 약관](https://antigravity.google/terms)상 제3자 제품이나 도구와 연결해
+사용하는 행위로 해석될 수 있으며, 계정 제한이나 정지 위험이 있습니다. 작성 요청, 표준 입력의
+참고 자료와 적용되는 문체 규약이 Google에 전송되고, 상호작용이 저장되거나 검토될 수 있습니다.
+
+`--provider antigravity`를 실행하기 직전에 다음 절차를 지키세요.
+
+1. 사용자에게 약관 위험과 Google에 전송되는 범위를 알리세요.
+2. 이번 한 번의 실행을 진행해도 되는지 명시적으로 물으세요.
+3. 사용자가 위험을 확인하고 진행에 명확히 동의한 경우에만
+   `--accept-antigravity-risk`를 추가해 실행하세요.
+4. 제공자를 Antigravity로 지정한 요청, 이전 실행에서 받은 동의, 환경변수나 저장된 설정을
+   현재 실행의 동의로 간주하지 마세요.
+5. 사용자가 답하지 않거나 동의하지 않으면 실행하지 말고 OpenRouter 또는 Google AI Studio를
+   안내하세요.
+
+로그인된 Antigravity CLI를 사용할 때의 기본 모델은 `gemini-3.6-flash-low`이며, 사용 가능한
+모델은 `agy models`로 확인할 수 있습니다. `--accept-antigravity-risk`는 약관 준수를 보장하지
+않으며, 위험 고지와 일회성 동의를 강제하는 확인 장치입니다.
 
 ## 결과 검증
 
