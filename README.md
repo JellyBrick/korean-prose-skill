@@ -35,6 +35,12 @@ Codex와 Claude Code를 비롯한 Agent Skills 호환 에이전트에서 사용�
 
 ## 설치
 
+### 모든 에이전트 공통
+
+https://www.skills.sh/jellybrick/korean-prose-skill/korean-prose
+
+해당 링크에서 스킬을 간단하게 설치할 수 있습니다.
+
 ### Codex
 
 Codex에 저장소 경로를 전달하여 설치를 요청할 수 있습니다.
