@@ -5,6 +5,8 @@
 영어를 직역했거나 문체가 고르지 못한 기술 문서, PR 본문, UI 문구를 한국어 원어민이 읽었을 때 자연스럽고 매끄러운 문장으로 다듬습니다.
 
 (e.g. `버튼 눌러요` -> `버튼을 눌러주세요`)
+<img width="803" height="393" src="https://github.com/user-attachments/assets/2aa58b36-4f95-414e-bcf8-4a4fa4bea8b3" />
+
 
 Codex와 Claude Code를 비롯한 Agent Skills 호환 에이전트에서 사용할 수 있습니다.
 
