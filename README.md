@@ -12,26 +12,21 @@ Codex와 Claude Code를 비롯한 Agent Skills 호환 에이전트에서 사용�
 
 ## 원리
 
-- Gemini로 초고를 작성하고, 내장된 문체 규약을 바탕으로 기계적인 번역투(직역체)와 불필요한 대명사, 어미 혼용을 정리합니다.
-- 코드나 다국어(i18n) 문구를 다듬을 때는 해당 문구가 실제로 호출되는 코드 위치, 전후 동작 맥락, 보간 변수, 인접 문구를 먼저 조사해 반영하며, Gemini가 내장된 읽기 전용 도구(`search_code`, `read_file`, `list_files`)로 저장소 맥락을 직접 조회할 수도 있습니다. (`--no-tools`로 해당 동작을 비활성화 할 수도 있습니다)
-- 기본적으로 OpenRouter를 사용하며, Google AI Studio나 로그인된 Antigravity CLI도 선택할 수 있습니다.
-- `확인되지 않은 사실이나 출처 보태기`, `과장`, `쓸데없는 홍보 문구`, `틀에 박힌 결론`, `단순히 A가 아니라 B다`, `A보다 B에 가깝다`, `감각적인 척하는 추상어 조합`, `대상이 흐릿한 지시어`, `조사와 어미를 떼어낸 명사 나열체`와 같은 LLM 특유의 글쓰기 패턴도 억제합니다.
-
-## 주의!!
-
-> [!WARNING]  
-> LLM이 생성된 문장은 항상 검토가 필요한 초안입니다.
-> 
-> LLM이 파일 경로, 숫자, 세부 동작을 원문과 다르게 작성할 수 있으므로 최종 반영 전에 원본과 일치하는지 직접 확인하세요!!
-
-## 요구 사항
-
-- Agent Skills를 지원하고 로컬 명령을 실행할 수 있는 에이전트
-- Node.js 24+
-- 선택한 제공자에 필요한 API 키 또는 CLI 로그인 상태
-  - OpenRouter: `OPENROUTER_API_KEY`
-  - Google AI Studio: `GEMINI_API_KEY`
-  - Antigravity: 설치 및 로그인을 마친 Antigravity CLI
+- 가능하다면 `Gemini`로 문서의 초고를 작성하고, 스킬에 내장된 문체 가이드를 바탕으로 가독성이 떨어지는 문장을 정리합니다.
+  - `Gemini` 호출시 기본적으로 `OpenRouter`를 사용합니다. 다만, `Google AI Studio`나 로그인된 상태의 `Antigravity CLI`도 사용할 수 있습니다.
+- 코드나 다국어(i18n) 문구를 다듬을 때는 해당 문구가 실제로 호출되는 코드 위치, 전후 동작 맥락, 인접 문구 등의 정보를 먼저 조사하여 반영합니다.
+  - 또한, `초고 작성용 Gemini`가 문장이 사용되는 컨텍스트를 직접적으로 이해할 수 있도록 읽기 전용 도구(`search_code`, `read_file`, `list_files`)를 제공합니다. (`--no-tools`로 해당 동작을 비활성화할 수도 있습니다)
+- LLM 특유의 글쓰기 패턴도 억제합니다.
+  - `확인되지 않은 사실이나 출처 보태기`
+  - `과장`
+  - `쓸데없는 홍보 문구`
+  - `틀에 박힌 결론`
+  - `단순히 A가 아니라 B다`
+  - `A보다 B에 가깝다`
+  - `감각적인 척하는 추상어 조합`
+  - `대상이 흐릿한 지시어`
+  - `조사와 어미를 떼어낸 명사 나열체`
+  - 등등...
 
 ## 설치
 
@@ -39,9 +34,14 @@ Codex와 Claude Code를 비롯한 Agent Skills 호환 에이전트에서 사용�
 
 https://www.skills.sh/jellybrick/korean-prose-skill/korean-prose
 
-해당 링크에서 스킬을 간단하게 설치할 수 있습니다.
+해당 링크에서 스킬을 간단한 방법으로 설치할 수 있습니다.
 
-### Codex
+<details>
+  <summary>
+    수동 설치 방법
+  </summary>
+  
+#### Codex
 
 Codex에 저장소 경로를 전달하여 설치를 요청할 수 있습니다.
 
@@ -50,7 +50,7 @@ Codex에 저장소 경로를 전달하여 설치를 요청할 수 있습니다.
 https://github.com/JellyBrick/korean-prose-skill/tree/main/skills/korean-prose
 ```
 
-직접 설치하려면 저장소를 복제한 뒤 스킬 폴더를 Codex 개인 설치 경로로 복사해주세요.
+직접 설치하려면 저장소를 복제한 뒤 스킬 폴더를 Codex 개인 설치 경로로 복사해 주세요.
 
 ```bash
 git clone https://github.com/JellyBrick/korean-prose-skill.git
@@ -58,7 +58,7 @@ mkdir -p ~/.codex/skills
 cp -R korean-prose-skill/skills/korean-prose ~/.codex/skills/korean-prose
 ```
 
-### Claude Code
+#### Claude Code
 
 저장소를 복제한 뒤 스킬 폴더를 Claude Code 개인 설치 경로로 복사해주세요.
 
@@ -70,10 +70,27 @@ cp -R korean-prose-skill/skills/korean-prose ~/.claude/skills/korean-prose
 
 Claude Code의 설치 위치와 호출 방식은 [Claude Code 스킬 문서](https://code.claude.com/docs/en/slash-commands)에서 확인하실 수 있습니다.
 
-### 기타 Agent Skills 호환 에이전트
+#### 기타 Agent Skills 호환 에이전트
 
 사용 중인 Agent의 문서에서 안내하는 스킬 디렉터리에 `skills/korean-prose` 폴더를 복사해 주세요.
-지원하는 디렉터리와 실행 권한은 Agent마다 다를 수 있습니다.
+
+</details>
+
+## 주의!!
+
+> [!WARNING]  
+> LLM이 생성된 문장은 항상 검토가 필요한 초안입니다.
+> 
+> LLM이 파일 경로, 숫자, 세부 동작을 원문과 다르게 작성할 수 있으므로 최종 반영 전에 원본과 일치하는지 직접 확인하세요!!
+
+## 요구 사항 및 설정
+
+- Agent Skills를 지원하고 로컬 명령을 실행할 수 있는 에이전트
+- Node.js 24+
+- 선택한 제공자에 필요한 API 키 또는 CLI 로그인 상태
+  - OpenRouter: `OPENROUTER_API_KEY`
+  - Google AI Studio: `GEMINI_API_KEY`
+  - Antigravity: 설치 및 로그인을 마친 Antigravity CLI
 
 ## 제공자 설정
 
@@ -103,12 +120,10 @@ export GEMINI_API_KEY='your-api-key'
 GEMINI_API_KEY=your-api-key
 ```
 
-`.env.local` 파일은 버전 관리에 포함하지 않도록 주의해 주세요.
-
 ### Antigravity
 
-Antigravity CLI를 설치하고 대화형 세션에서 로그인하거나 CLI 제공자 인증을 설정해 주세요.
-스크립트는 Antigravity의 인증 정보를 재사용해 `agy`를 헤드리스 모드로 실행합니다.
+Antigravity CLI를 설치하고 대화형 세션에서 로그인하거나 CLI를 통해 로그인해 주세요.
+korean-prose의 prose 스크립트는 Antigravity의 인증 정보를 재사용해 `agy`를 헤드리스 모드로 실행합니다.
 
 > [!CAUTION]
 > [Google Antigravity 추가 약관](https://antigravity.google/terms)은 제3자 제품이나 도구와
@@ -187,9 +202,9 @@ export KOREAN_PROSE_MODEL='gemini-3.7-flash'
 Google AI Studio의 기본 모델은 `gemini-3.5-flash-lite`, Antigravity의 기본 모델은
 `gemini-3.6-flash-low`입니다. Antigravity에서 선택할 수 있는 모델은 `agy models`로 확인해 주세요.
 
-## 문체 규약
+## 문체 가이드
 
-기본 문체 규약은 `skills/korean-prose/references/style.md`에 있고, 작업 중인 저장소 루트에 `docs/korean-style.md`가 있으면 해당 프로젝트의 문체 규약을 우선 적용하게 됩니다.
+기본 문체 가이드는 `skills/korean-prose/references/style.md`에 있고, 작업 중인 레포지토리 루트 디렉토리에 `docs/korean-style.md`가 있으면 해당 프로젝트의 문체 가이드를 우선적으로 적용합니다.
 
 ## 그 외 추천하는 스킬
 
