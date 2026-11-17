@@ -122,17 +122,19 @@ GEMINI_API_KEY=your-api-key
 
 ### Antigravity
 
-Antigravity CLI를 설치하고 대화형 세션에서 로그인하거나 CLI를 통해 로그인하고, 아래의 프롬프트를 입력해주세요.
+Antigravity CLI를 설치한 뒤 대화형 세션에서 로그인하거나 CLI를 통해 로그인해주세요.
+
+그리고, korean-prose 스킬을 사용하기 전, 해당 에이전트에서 아래의 프롬프트를 입력해주세요.
 
 ```text
-korean-prose 스킬 사용할 때 Antigravity 모드로 사용하도록 메모리 해.
+korean-prose 스킬을 사용할 때 Antigravity 모드로 사용하도록 메모리해.
 ```
 
 이 뒤부터는 korean-prose 스킬이 `agy`를 헤드리스 모드로 호출해서 사용하게 됩니다.
 
 > [!CAUTION]
-> [Google Antigravity 추가 약관](https://antigravity.google/terms)은 제3자 제품이나 도구와
-> 연결해 서비스를 사용하는 행위를 위반으로 해석할 수 있도록 규정하고 있습니다. 
+> [Google Antigravity 추가 약관](https://antigravity.google/terms)은 제3자 제품이나 도구와 연결해 서비스를 사용하는 행위를 위반으로 해석할 수 있도록 규정하고 있습니다.
+> 
 > 구글 계정이 제한되거나 정지될 위험이 있으므로, 약관을 직접 확인한 뒤 사용해 주세요.
 
 ## 사용 방법
@@ -167,10 +169,11 @@ git diff --stat | node skills/korean-prose/scripts/prose.ts \
   '이 변경의 PR 본문을 작성해 줘'
 ```
 
-인자에는 작성 요청을, 표준 입력에는 참고 자료나 변경 사항을 적어주세요. 그리고, `--medium` 옵션에는 글이 게시될 출력 매체를 지정해주세요. `openrouter`와 `google-ai-studio` 제공자는 필요할 때 저장소 안의 코드와 다국어 문구를 읽기 전용 도구로 조회하며, 도구 호출을 끄려면 `--no-tools` 옵션을 지정할 수 있습니다.
+argument에는 작성 요청을, stdin에는 참고 자료나 변경 사항을 적어주세요. 그리고, `--medium` 옵션에는 글이 게시될 매체의 타입을 지정해주세요. 
 
-`--provider`에는 `openrouter`, `google-ai-studio`, `antigravity` 중 하나를 지정할 수 있습니다.
-`--model`을 생략하면 제공자별 기본 모델을 사용합니다.
+- `--provider`에는 `openrouter`, `google-ai-studio`, `antigravity` 중 하나를 지정할 수 있습니다.
+  - `openrouter`와 `google-ai-studio` 제공자는 필요할 때 저장소 안의 코드와 다국어 문구를 읽기 전용 도구로 조회합니다. 도구 호출을 사용하지 않으려면, `--no-tools` 옵션을 사용해주세요.
+- `--model`을 생략하면 제공자별 기본 모델을 사용합니다.
 
 ```bash
 # Google AI Studio와 Gemini 3.5 Flash-Lite
@@ -197,7 +200,7 @@ node skills/korean-prose/scripts/prose.ts \
 ```
 
 `KOREAN_PROSE_PROVIDER`와 `KOREAN_PROSE_MODEL` 환경변수로 기본값을 바꿀 수도 있습니다.
-명령줄 옵션은 환경변수보다 우선합니다.
+명령줄 옵션은 환경변수보다 우선순위가 높습니다. 
 
 ```bash
 export KOREAN_PROSE_PROVIDER='google-ai-studio'
@@ -209,7 +212,8 @@ Google AI Studio의 기본 모델은 `gemini-3.5-flash-lite`, Antigravity의 기
 
 ## 문체 가이드
 
-기본 문체 가이드는 `skills/korean-prose/references/style.md`에 있고, 작업 중인 레포지토리 루트 디렉토리에 `docs/korean-style.md`가 있으면 해당 프로젝트의 문체 가이드를 우선적으로 적용합니다.
+- 기본 문체 가이드는 `skills/korean-prose/references/style.md`에 있습니다.
+- 작업 중인 레포지토리 루트 디렉토리에 `docs/korean-style.md`가 있으면 해당 프로젝트의 문체 가이드를 먼저 적용합니다.
 
 ## 그 외 추천하는 스킬
 
