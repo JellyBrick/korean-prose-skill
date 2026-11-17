@@ -122,13 +122,18 @@ GEMINI_API_KEY=your-api-key
 
 ### Antigravity
 
-Antigravity CLI를 설치하고 대화형 세션에서 로그인하거나 CLI를 통해 로그인해 주세요.
-korean-prose의 prose 스크립트는 Antigravity의 인증 정보를 재사용해 `agy`를 헤드리스 모드로 실행합니다.
+Antigravity CLI를 설치하고 대화형 세션에서 로그인하거나 CLI를 통해 로그인하고, 아래의 프롬프트를 입력해주세요.
+
+```text
+korean-prose 스킬 사용할 때 Antigravity 모드로 사용하도록 메모리 해.
+```
+
+이 뒤부터는 korean-prose 스킬이 `agy`를 헤드리스 모드로 호출해서 사용하게 됩니다.
 
 > [!CAUTION]
 > [Google Antigravity 추가 약관](https://antigravity.google/terms)은 제3자 제품이나 도구와
-> 연결해 서비스를 사용하는 행위를 위반으로 해석할 수 있도록 규정하고 있어서, 계정이 제한되거나
-> 정지될 위험이 있으므로 약관을 직접 확인한 뒤 사용해 주세요.
+> 연결해 서비스를 사용하는 행위를 위반으로 해석할 수 있도록 규정하고 있습니다. 
+> 구글 계정이 제한되거나 정지될 위험이 있으므로, 약관을 직접 확인한 뒤 사용해 주세요.
 
 ## 사용 방법
 
