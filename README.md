@@ -141,7 +141,7 @@ korean-prose 스킬을 사용할 때 Antigravity 모드로 사용하도록 메�
 
 ### Codex
 
-대화창에서 `$korean-prose`를 불러 원하는 작업을 요청하실 수 있어요.
+대화창에서 `$korean-prose`를 불러 원하는 작업을 요청하실 수 있습니다.
 
 ```text
 $korean-prose를 사용해 이 PR 본문을 자연스럽게 다듬어 주세요.
@@ -149,7 +149,7 @@ $korean-prose를 사용해 이 PR 본문을 자연스럽게 다듬어 주세요.
 
 ### Claude Code
 
-대화창에서 `/korean-prose` 명령으로 호출하실 수 있어요.
+대화창에서 `/korean-prose` 명령으로 호출하실 수 있습니다.
 
 ```text
 /korean-prose 이 PR 본문을 자연스럽게 다듬어 주세요.
@@ -157,7 +157,7 @@ $korean-prose를 사용해 이 PR 본문을 자연스럽게 다듬어 주세요.
 
 ### 터미널
 
-저장소를 복제한 디렉터리에서 CLI로 직접 실행하실 수도 있어요.
+이 레포지토리를 클론한 디렉토리에서 CLI로 직접 실행하실 수도 있습니다.
 
 ```bash
 node skills/korean-prose/scripts/prose.ts \
